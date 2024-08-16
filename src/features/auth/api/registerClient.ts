@@ -1,7 +1,8 @@
 import { axios } from "../../../lib/axios";
+import { registerClientResponse } from "../schema/registerClient.schema";
 
 
 
 
 export const registerClient = (payload: {email: string, cc: string, password: string, rol: string}): Promise<unknown> => axios.post(`/api/v1/register`, payload)
-// .then((data) => OpenCaseResponseSchema.parse(data.data))
+.then((data) => registerClientResponse.parse(data.data))

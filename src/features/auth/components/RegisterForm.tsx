@@ -1,37 +1,55 @@
-import { Button, Container, PasswordInput, TextInput, Title } from "@mantine/core"
+import { Button, Container, PasswordInput, Text, TextInput, Title } from "@mantine/core"
 import { useRegisterClient } from "../hook/useRegisterClient"
+import { useForm, zodResolver } from "@mantine/form";
+import { registerClientFormSchema } from "../schema/registerClient.schema";
 
 
 
 
 function RegisterForm() {
-
   const registerMut = useRegisterClient()
 
-  async function onRegister() {
-    const res = await registerMut.mutateAsync({
-      "email": "client01@gmail.com",
-      "cc": "133123121",
-      "password": "testing01",
-      "rol": "STANDARD",
-    })
+  const form = useForm({
+    mode: 'controlled',
+    initialValues: {
+      email: "",
+      cc: "",
+      password: "",
+    },
+    validate: zodResolver(registerClientFormSchema),
 
-    
-    debugger
+  });
+
+
+  async function onRegister() {
+    const result = form.validate()
+    if (result.hasErrors) {
+      return
+    }
+
+    const payload = {
+      ...form.values,
+      rol: "STANDARD",
+    }
+
+    await registerMut.mutateAsync(payload)
   }
 
   return (
     <Container>
       <Title>Register form</Title>
       <TextInput
+        {...form.getInputProps('cc')}
         label="CC"
         placeholder="1115048385"
       />
       <TextInput
+        {...form.getInputProps('email')}
         label="Email"
         placeholder="john@gmail.com"
       />
       <PasswordInput
+        {...form.getInputProps('password')}
         label="Password"
         placeholder="***********"
       />
@@ -40,10 +58,16 @@ function RegisterForm() {
         disabled={registerMut.isPending}
       >Register
       </Button>
-      <Button onClick={() => console.log(registerMut)}>debug</Button>
-      <Button onClick={() => registerMut.reset()}>mutate reset</Button>
-
-
+      {registerMut.isSuccess && (
+        <Text>
+          Account created successfully
+        </Text>
+      )}
+      {registerMut.isError && (
+        <Text>
+          "There was an error creating the account, please try again"
+        </Text>
+      )}
     </Container>
   )
 }
