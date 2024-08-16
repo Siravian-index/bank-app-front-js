@@ -1,4 +1,4 @@
-import { Center, Loader, Text, Title, } from "@mantine/core"
+import { Center, Loader, ScrollArea, Text, Title, } from "@mantine/core"
 import { useGetTransactions } from "../hook/useGetTransactions"
 import Transaction from "./Transaction"
 
@@ -27,7 +27,9 @@ function Transactions() {
   return (
     <>
       <Title>Transactions</Title>
-      {queryTransactions.data?.map((data) => <Transaction data={data} key={data.id}/>)}
+      <ScrollArea h="80vh">
+        {queryTransactions.data?.map((data) => <Transaction data={data} key={data.id} />)}
+      </ScrollArea>
     </>
   )
 }
