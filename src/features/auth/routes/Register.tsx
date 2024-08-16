@@ -1,13 +1,16 @@
 
 
+import { Box, Flex } from "@mantine/core"
 import RegisterForm from "../components/RegisterForm"
 
 
 export function Register() {
   return (
-    <>
-      <RegisterForm />
-    </>
+    <Box>
+      {/* <Flex justify="center" align="center" direction="column"> */}
+        <RegisterForm />
+      {/* </Flex> */}
+    </Box>
   )
 }
 
