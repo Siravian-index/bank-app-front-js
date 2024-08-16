@@ -4,8 +4,7 @@ import { env } from '../config/env';
 
 
 async function authRequestInterceptor(config: InternalAxiosRequestConfig) {
-  // TODO: get token from storage/state
-  const token = ""
+  const token = localStorage.getItem("_auth") ?? ""
   if (token) {
     config.headers.authorization = `Bearer ${token}`;
   }
