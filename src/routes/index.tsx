@@ -3,7 +3,7 @@ import { Navigate, useRoutes } from 'react-router-dom';
 
 
 import { publicRoutes } from './public';
-// import { protectedRoutes } from './private';
+import { protectedRoutes } from './private';
 
 function AppRoutes() {
 
@@ -13,7 +13,7 @@ function AppRoutes() {
   ];
 
 
-  const element = useRoutes([...publicRoutes, ...commonRoutes]);
+  const element = useRoutes([...publicRoutes, ...protectedRoutes, ...commonRoutes]);
 
   return <>{element}</>;
 }

@@ -36,7 +36,7 @@ function RegisterForm() {
   }
 
   return (
-    <Container fluid w="500" maw="500" p="lg" style={{ display: "flex", "flex-direction": "column", gap: "1rem", alignSelf: "center" }}>
+    <Container fluid w="500" maw="500" p="lg" style={{ display: "flex", flexDirection: "column", gap: "1rem", alignSelf: "center" }}>
       <Title>Register form</Title>
       <TextInput
         {...form.getInputProps('cc')}
