@@ -36,7 +36,7 @@ function RegisterForm() {
   }
 
   return (
-    <Container>
+    <Container fluid maw="500" style={{ display: "flex", "flex-direction": "column", gap: "1rem", }}>
       <Title>Register form</Title>
       <TextInput
         {...form.getInputProps('cc')}
@@ -65,9 +65,10 @@ function RegisterForm() {
       )}
       {registerMut.isError && (
         <Text>
-          "There was an error creating the account, please try again"
+          There was an error creating the account, please try again
         </Text>
       )}
+
     </Container>
   )
 }

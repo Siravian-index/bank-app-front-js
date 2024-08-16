@@ -12,6 +12,6 @@ export const registerClientResponse = z.object({
 
 export const registerClientFormSchema = z.object({
   email: z.string({ required_error: "Email is required" }).email(),
-  cc: z.string({ required_error: "CC is required" }).min(6).max(10).refine(v => !isNaN(Number(v)), { message: "Invalid CC number" }),
-  password: z.string({ required_error: "Password is required" }),
+  cc: z.string({ required_error: "CC is required" }).min(10, { message: "CC is required" }).max(10, { message: "CC is required" }).refine(v => !isNaN(Number(v)), { message: "Invalid CC number" }),
+  password: z.string({ required_error: "Password is required" }).min(10, { message: "At least 10 characters password is required" }),
 })
