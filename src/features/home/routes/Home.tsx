@@ -1,13 +1,14 @@
 import { Container, Tabs } from "@mantine/core"
 import Account from "../components/Account"
 import Transactions from "../components/Transactions"
+import AccountForm from "../components/AccountForm"
 
 
 function Home() {
 
   return (
     <>
-      <Tabs defaultValue="Transactions">
+      <Tabs defaultValue="Account" keepMounted={false}>
         <Tabs.List justify="center">
           <Tabs.Tab value="Account">Account</Tabs.Tab>
           <Tabs.Tab value="Transactions">Transactions</Tabs.Tab>
@@ -26,7 +27,9 @@ function Home() {
         </Tabs.Panel>
 
         <Tabs.Panel value="Services" pt="xs">
-          Services
+          <Container fluid w="500" maw="500">
+            <AccountForm />
+          </Container>
         </Tabs.Panel>
       </Tabs>
     </>
