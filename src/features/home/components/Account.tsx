@@ -1,4 +1,4 @@
-import { Card, Center, Group, Loader, NumberFormatter, Text } from "@mantine/core"
+import { Card, Center, Group, Loader, NumberFormatter, Stack, Text, Title } from "@mantine/core"
 import { useGetAccount } from "../hook/useGetAccount"
 import { useUser } from "../../../hook/useUser"
 
@@ -7,7 +7,6 @@ function Account() {
   const user = useUser()
   const queryAccount = useGetAccount()
 
-  console.log(queryAccount.data)
 
   if (queryAccount.isFetching) {
     return (
@@ -18,8 +17,11 @@ function Account() {
   }
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
-
-      <Group justify="space-between" mt="md" mb="xs">
+      <Title>Account Info</Title>
+      <Text mt="lg" size="sm" c="dimmed">
+        Account id
+      </Text>
+      <Group justify="space-between" mb="xs" >
         <Text fw={500}>{queryAccount.data?.id}</Text>
         <NumberFormatter prefix="$ " value={queryAccount.data?.balance} thousandSeparator />
       </Group>

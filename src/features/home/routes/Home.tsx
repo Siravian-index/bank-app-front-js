@@ -1,12 +1,13 @@
 import { Container, Tabs } from "@mantine/core"
 import Account from "../components/Account"
+import Transactions from "../components/Transactions"
 
 
 function Home() {
 
   return (
     <>
-      <Tabs defaultValue="Account">
+      <Tabs defaultValue="Transactions">
         <Tabs.List justify="center">
           <Tabs.Tab value="Account">Account</Tabs.Tab>
           <Tabs.Tab value="Transactions">Transactions</Tabs.Tab>
@@ -19,13 +20,13 @@ function Home() {
         </Tabs.Panel>
 
         <Tabs.Panel value="Transactions" pt="xs">
-          Second tab color is blue, it gets this value from props, props have the priority and will
-          override context value
+          <Container fluid w="500" maw="500">
+            <Transactions />
+          </Container>
         </Tabs.Panel>
 
         <Tabs.Panel value="Services" pt="xs">
-          Second tab color is blue, it gets this value from props, props have the priority and will
-          override context value
+          Services
         </Tabs.Panel>
       </Tabs>
     </>
