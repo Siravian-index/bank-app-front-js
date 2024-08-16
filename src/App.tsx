@@ -1,9 +1,10 @@
 import AppProviders from "./providers/AppProviders"
+import AppRoutes from "./routes"
 
 function App() {
   return (
     <AppProviders>
-      <p>testing</p>
+      <AppRoutes />
     </AppProviders>
   )
 }
