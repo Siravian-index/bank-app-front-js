@@ -15,6 +15,14 @@ function Account() {
       </Center>
     )
   }
+
+  if (queryAccount.isError) {
+    return (
+      <Center>
+        <Text>Something went wrong</Text>
+      </Center>
+    )
+  }
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
       <Title>Account Info</Title>
