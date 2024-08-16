@@ -1,4 +1,4 @@
-import { Card, Center, Group, Loader, NumberFormatter, Stack, Text, Title } from "@mantine/core"
+import { Card, Center, Group, Loader, NumberFormatter, Text, Title } from "@mantine/core"
 import { useGetAccount } from "../hook/useGetAccount"
 import { useUser } from "../../../hook/useUser"
 
