@@ -22,19 +22,19 @@ function Home() {
           <Tabs.Tab value="Services">Services</Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel value="Account" pt="xs">
-          <Container fluid w="500" maw="500">
+          <Container fluid maw="500">
             <Account />
           </Container>
         </Tabs.Panel>
 
         <Tabs.Panel value="Transactions" pt="xs">
-          <Container fluid w="500" maw="500">
+          <Container fluid maw="500">
             <Transactions />
           </Container>
         </Tabs.Panel>
 
         <Tabs.Panel value="Services" pt="xs">
-          <Container fluid w="500" maw="500">
+          <Container fluid maw="500">
             <AccountForm />
           </Container>
         </Tabs.Panel>
