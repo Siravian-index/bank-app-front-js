@@ -35,7 +35,7 @@ function AccountForm() {
         recipientAccountId: form.values.recipientAccountId,
         type: `${form.values.type}`
       }
-       await postAccountAction(payload)
+      await postAccountAction(payload)
       setStatus("SUCCESS")
       debugger
     } catch (error) {
@@ -48,7 +48,7 @@ function AccountForm() {
 
   return (
     <>
-      <Container fluid w="500" maw="500" p="lg" style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <Container fluid maw="500" p="lg" style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <Select
           label="Type"
           data={['DEPOSIT', 'WITHDRAW', 'TRANSFER',]}
