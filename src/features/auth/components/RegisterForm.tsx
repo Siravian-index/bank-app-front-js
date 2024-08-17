@@ -2,6 +2,7 @@ import { Button, Container, PasswordInput, Text, TextInput, Title } from "@manti
 import { useRegisterClient } from "../hook/useRegisterClient"
 import { useForm, zodResolver } from "@mantine/form";
 import { registerClientFormSchema } from "../schema/registerClient.schema";
+import { Link } from "react-router-dom";
 
 
 
@@ -68,6 +69,7 @@ function RegisterForm() {
           There was an error creating the account, please try again
         </Text>
       )}
+      <Link to="/auth/login">Already have an account?</Link>
 
     </Container>
   )

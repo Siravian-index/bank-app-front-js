@@ -3,7 +3,7 @@ import { useForm, zodResolver } from "@mantine/form";
 import { useLoginClient } from "../hook/useLoginClient";
 import { loginClientFormSchema } from "../schema/loginClient.schema";
 import useSignIn from "react-auth-kit/hooks/useSignIn";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -67,6 +67,7 @@ function LoginForm() {
       >
         Login
       </Button>
+      <Link to="/auth/register">Don't have an account yet?</Link>
     </Container>
   )
 }
